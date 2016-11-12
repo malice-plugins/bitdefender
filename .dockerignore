@@ -1,0 +1,9 @@
+# Ignore .git folder
+.git*
+
+.gitignore
+README.md
+LICENSE
+CHANGELOG.md
+circle.yml
+Makefile
