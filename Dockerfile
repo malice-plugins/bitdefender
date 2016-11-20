@@ -1,4 +1,4 @@
-FROM ubuntu:precise
+FROM debian
 
 MAINTAINER blacktop, https://github.com/blacktop
 
