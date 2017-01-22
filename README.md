@@ -5,7 +5,7 @@ malice-bitdefender
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 [![Docker Stars](https://img.shields.io/docker/stars/malice/bitdefender.svg)](https://hub.docker.com/r/malice/bitdefender/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/malice/bitdefender.svg)](https://hub.docker.com/r/malice/bitdefender/)
-[![Docker Image](https://img.shields.io/badge/docker image-337.6 MB-blue.svg)](https://hub.docker.com/r/malice/bitdefender/)
+[![Docker Image](https://img.shields.io/badge/docker image-348 MB-blue.svg)](https://hub.docker.com/r/malice/bitdefender/)
 
 This repository contains a **Dockerfile** of [Bitdefender](http://www.bitdefender.com/business/antivirus-for-unices.html) for [Docker](https://www.docker.io/)'s [trusted build](https://hub.docker.com/r/malice/bitdefender/) published to the public [DockerHub](https://hub.docker.com).
 
@@ -40,17 +40,18 @@ Author:
 
 Options:
   --verbose, -V         verbose output
-  --table, -t           output as Markdown table
-  --post, -p            POST results to Malice webhook [$MALICE_ENDPOINT]
-  --proxy, -x           proxy settings for Malice webhook endpoint [$MALICE_PROXY]
-  --timeout value       malice plugin timeout (in seconds) (default: 60) [$MALICE_TIMEOUT]  
-  --elasitcsearch value elasitcsearch address for Malice to store results [$MALICE_ELASTICSEARCH]
-  --help, -h            show help
-  --version, -v         print the version
+  --table, -t	       output as Markdown table
+  --callback, -c	    POST results to Malice webhook [$MALICE_ENDPOINT]
+  --proxy, -x	       proxy settings for Malice webhook endpoint [$MALICE_PROXY]
+  --timeout value       malice plugin timeout (in seconds) (default: 60) [$MALICE_TIMEOUT]    
+  --elasitcsearch value elasitcsearch address for Malice to store results [$MALICE_ELASTICSEARCH]   
+  --help, -h	        show help
+  --version, -v	     print the version
 
 Commands:
-  update        Update virus definitions
-  help          Shows a list of commands or help for one command
+  update	Update virus definitions
+  web       Create a bitdefender scan web service  
+  help		Shows a list of commands or help for one command
 
 Run 'bitdefender COMMAND --help' for more information on a command.
 ```
@@ -87,38 +88,10 @@ This will output to stdout and POST to malice results API webhook endpoint.
 Documentation
 -------------
 
-### To write results to [ElasticSearch](https://www.elastic.co/products/elasticsearch)
-
-```bash
-$ docker volume create --name malice
-$ docker run -d --name elastic \
-                -p 9200:9200 \
-                -v malice:/usr/share/elasticsearch/data \
-                 blacktop/elasticsearch
-$ docker run --rm -v /path/to/malware:/malware:ro --link elastic malice/bitdefender -t FILE
-```
-
-### POST results to a webhook
-
-```bash
-$ docker run -v `pwd`:/malware:ro \
-             -e MALICE_ENDPOINT="https://malice.io:31337/scan/file" \
-             malice/bitdefender --post evil.malware
-```
-
-### To update the AV run the following:
-
-```bash
-$ docker run --name=bitdefender malice/bitdefender update
-```
-
-Then to use the updated bitdefender container:
-
-```bash
-$ docker commit bitdefender malice/bitdefender:updated
-$ docker rm bitdefender # clean up updated container
-$ docker run --rm malice/bitdefender:updated EICAR
-```
+-	[To write results to ElasticSearch](https://github.com/maliceio/malice-bitdefender/blob/master/docs/elasticsearch.md)
+-	[To create a Bitdefender scan micro-service](https://github.com/maliceio/malice-bitdefender/blob/master/docs/web.md)
+-	[To post results to a webhook](https://github.com/maliceio/malice-bitdefender/blob/master/docs/callback.md)
+-	[To update the AV definitions](https://github.com/maliceio/malice-bitdefender/blob/master/docs/update.md)
 
 ### Issues
 

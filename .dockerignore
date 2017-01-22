@@ -7,3 +7,5 @@ LICENSE
 CHANGELOG.md
 circle.yml
 Makefile
+docs*
+results.json
