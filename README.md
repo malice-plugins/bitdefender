@@ -46,7 +46,7 @@ Options:
   --timeout value       malice plugin timeout (in seconds) (default: 60) [$MALICE_TIMEOUT]    
   --elasitcsearch value elasitcsearch address for Malice to store results [$MALICE_ELASTICSEARCH]   
   --help, -h	        show help
-  --version, -v	       print the version
+  --version, -v	        print the version
 
 Commands:
   update	Update virus definitions
