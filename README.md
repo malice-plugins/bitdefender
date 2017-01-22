@@ -33,7 +33,7 @@ Usage: bitdefender [OPTIONS] COMMAND [arg...]
 
 Malice Bitdefender AntiVirus Plugin
 
-Version: v0.1.0, BuildTime: 20160227
+Version: v0.1.0, BuildTime: 20170122
 
 Author:
   blacktop - <https://github.com/blacktop>
@@ -68,7 +68,7 @@ This will output to stdout and POST to malice results API webhook endpoint.
     "infected": true,
     "result": "EICAR-Test-File (not a virus)",
     "engine": "7.90123",
-    "updated": "20160227"
+    "updated": "20170122"
   }
 }
 ```
@@ -80,8 +80,8 @@ This will output to stdout and POST to malice results API webhook endpoint.
 #### Bitdefender
 
 | Infected | Result                        | Engine  | Updated  |
-|----------|-------------------------------|---------|----------|
-| true     | EICAR-Test-File (not a virus) | 7.90123 | 20160227 |
+| -------- | ----------------------------- | ------- | -------- |
+| true     | EICAR-Test-File (not a virus) | 7.90123 | 20170122 |
 
 ---
 
