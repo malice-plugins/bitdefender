@@ -109,4 +109,4 @@ Please update the [CHANGELOG.md](https://github.com/maliceio/malice-bitdefender/
 
 ### License
 
-MIT Copyright (c) 2016 **blacktop**
+MIT Copyright (c) 2016-2017 **blacktop**
