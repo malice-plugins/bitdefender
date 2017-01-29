@@ -8,12 +8,13 @@ dependencies:
   override:
     - docker info
     - if [[ -e ~/docker/image.tar ]]; then docker load --input ~/docker/image.tar; fi
-    - docker build -t malice_bit .
-    - mkdir -p ~/docker; docker save malice_bit > ~/docker/image.tar
+    - docker build -t malice_av .
+    - mkdir -p ~/docker; docker save malice_av > ~/docker/image.tar
 
 test:
   override:
-    - docker run malice_bit EICAR
+    - docker images malice_av
+    - docker run malice_av -V -t EICAR
 
 deployment:
   # master:
