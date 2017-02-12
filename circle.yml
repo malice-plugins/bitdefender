@@ -8,7 +8,8 @@ dependencies:
   override:
     - docker info
     - if [[ -e ~/docker/image.tar ]]; then docker load --input ~/docker/image.tar; fi
-    - docker build -t malice_av .
+    - docker build -t malice_av .:
+        timeout: 1800 # 20 mins
     - mkdir -p ~/docker; docker save malice_av > ~/docker/image.tar
 
 test:
