@@ -5,13 +5,13 @@ malice-bitdefender
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 [![Docker Stars](https://img.shields.io/docker/stars/malice/bitdefender.svg)](https://hub.docker.com/r/malice/bitdefender/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/malice/bitdefender.svg)](https://hub.docker.com/r/malice/bitdefender/)
-[![Docker Image](https://img.shields.io/badge/docker image-348 MB-blue.svg)](https://hub.docker.com/r/malice/bitdefender/)
+[![Docker Image](https://img.shields.io/badge/docker%20image-377MB-blue.svg)](https://hub.docker.com/r/malice/bitdefender/)
 
 This repository contains a **Dockerfile** of [Bitdefender](http://www.bitdefender.com/business/antivirus-for-unices.html) for [Docker](https://www.docker.io/)'s [trusted build](https://hub.docker.com/r/malice/bitdefender/) published to the public [DockerHub](https://hub.docker.com).
 
 ### Dependencies
 
--	[ubuntu:precise (*138 MB*\)](https://hub.docker.com/_/ubuntu/)
+-	[debian (*123 MB*\)](https://hub.docker.com/_/debian/)
 
 ### Installation
 

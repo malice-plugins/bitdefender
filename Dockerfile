@@ -1,8 +1,8 @@
-FROM debian
+FROM debian:jessie
 
 LABEL maintainer "https://github.com/blacktop"
 
-ENV GO_VERSION 1.7.5
+ENV GO_VERSION 1.8.1
 
 COPY . /go/src/github.com/maliceio/malice-bitdefender
 RUN buildDeps='ca-certificates \
