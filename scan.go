@@ -172,6 +172,7 @@ func updateAV(ctx context.Context) error {
 		"category": category,
 		"path":     path,
 	}).Debug("Bitdefender update: ", output)
+	assert(err)
 	// Update UPDATED file
 	t := time.Now().Format("20060102")
 	err = ioutil.WriteFile("/opt/malice/UPDATED", []byte(t), 0644)
@@ -309,12 +310,14 @@ func main() {
 	}
 	app.Action = func(c *cli.Context) error {
 
+		var err error
+
 		if c.Bool("verbose") {
 			log.SetLevel(log.DebugLevel)
 		}
 
 		if c.Args().Present() {
-			path, err := filepath.Abs(c.Args().First())
+			path, err = filepath.Abs(c.Args().First())
 			utils.Assert(err)
 
 			if _, err := os.Stat(path); os.IsNotExist(err) {
