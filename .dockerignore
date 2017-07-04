@@ -1,11 +1,14 @@
 # Ignore .git folder
 .git*
-
 .gitignore
+
+.circleci*
+docs*
+tests*
+
 README.md
 LICENSE
 CHANGELOG.md
 circle.yml
 Makefile
-docs*
 results.json

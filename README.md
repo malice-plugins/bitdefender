@@ -1,7 +1,7 @@
 malice-bitdefender
 ==================
 
-[![Circle CI](https://circleci.com/gh/maliceio/malice-bitdefender.png?style=shield)](https://circleci.com/gh/maliceio/malice-bitdefender)
+[![Circle CI](https://circleci.com/gh/malice-plugins/bitdefender.png?style=shield)](https://circleci.com/gh/malice-plugins/bitdefender)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 [![Docker Stars](https://img.shields.io/docker/stars/malice/bitdefender.svg)](https://hub.docker.com/r/malice/bitdefender/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/malice/bitdefender.svg)](https://hub.docker.com/r/malice/bitdefender/)
@@ -73,7 +73,7 @@ This will output to stdout and POST to malice results API webhook endpoint.
 }
 ```
 
-### STDOUT (Markdown Table):
+### STDOUT Markdown:
 
 ---
 
@@ -88,24 +88,24 @@ This will output to stdout and POST to malice results API webhook endpoint.
 Documentation
 -------------
 
--	[To write results to ElasticSearch](https://github.com/maliceio/malice-bitdefender/blob/master/docs/elasticsearch.md)
--	[To create a Bitdefender scan micro-service](https://github.com/maliceio/malice-bitdefender/blob/master/docs/web.md)
--	[To post results to a webhook](https://github.com/maliceio/malice-bitdefender/blob/master/docs/callback.md)
--	[To update the AV definitions](https://github.com/maliceio/malice-bitdefender/blob/master/docs/update.md)
+-	[To write results to ElasticSearch](https://github.com/malice-plugins/bitdefender/blob/master/docs/elasticsearch.md)
+-	[To create a Bitdefender scan micro-service](https://github.com/malice-plugins/bitdefender/blob/master/docs/web.md)
+-	[To post results to a webhook](https://github.com/malice-plugins/bitdefender/blob/master/docs/callback.md)
+-	[To update the AV definitions](https://github.com/malice-plugins/bitdefender/blob/master/docs/update.md)
 
 ### Issues
 
-Find a bug? Want more features? Find something missing in the documentation? Let me know! Please don't hesitate to [file an issue](https://github.com/maliceio/malice-bitdefender/issues/new).
+Find a bug? Want more features? Find something missing in the documentation? Let me know! Please don't hesitate to [file an issue](https://github.com/malice-plugins/bitdefender/issues/new).
 
 ### CHANGELOG
 
-See [`CHANGELOG.md`](https://github.com/maliceio/malice-bitdefender/blob/master/CHANGELOG.md)
+See [`CHANGELOG.md`](https://github.com/malice-plugins/bitdefender/blob/master/CHANGELOG.md)
 
 ### Contributing
 
-[See all contributors on GitHub](https://github.com/maliceio/malice-bitdefender/graphs/contributors).
+[See all contributors on GitHub](https://github.com/malice-plugins/bitdefender/graphs/contributors).
 
-Please update the [CHANGELOG.md](https://github.com/maliceio/malice-bitdefender/blob/master/CHANGELOG.md) and submit a [Pull Request on GitHub](https://help.github.com/articles/using-pull-requests/).
+Please update the [CHANGELOG.md](https://github.com/malice-plugins/bitdefender/blob/master/CHANGELOG.md) and submit a [Pull Request on GitHub](https://help.github.com/articles/using-pull-requests/).
 
 ### License
 
