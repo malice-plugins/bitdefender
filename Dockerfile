@@ -7,6 +7,7 @@ LABEL malice.plugin.category="av"
 LABEL malice.plugin.mime="*"
 LABEL malice.plugin.docker.engine="*"
 
+COPY bd_fix.sh /go/src/github.com/malice-plugins/bitdefender
 RUN buildDeps='ca-certificates \
                build-essential \
                gdebi-core \

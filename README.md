@@ -11,7 +11,7 @@ This repository contains a **Dockerfile** of [Bitdefender](http://www.bitdefende
 
 ### Dependencies
 
--	[debian (*123 MB*\)](https://hub.docker.com/_/debian/)
+-	[debian:jessie (*123 MB*\)](https://hub.docker.com/_/debian/)
 
 ### Installation
 
@@ -73,7 +73,7 @@ This will output to stdout and POST to malice results API webhook endpoint.
 }
 ```
 
-### STDOUT Markdown:
+### Markdown:
 
 ---
 
