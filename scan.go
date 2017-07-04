@@ -22,11 +22,14 @@ import (
 	"github.com/urfave/cli"
 )
 
-// Version stores the plugin's version
-var Version string
+var (
+	// Version stores the plugin's version
+	Version string
+	// BuildTime stores the plugin's build time
+	BuildTime string
 
-// BuildTime stores the plugin's build time
-var BuildTime string
+	path string
+)
 
 const (
 	name     = "bitdefender"
@@ -66,7 +69,7 @@ func assert(err error) {
 }
 
 // AvScan performs antivirus scan
-func AvScan(path string, timeout int) Bitdefender {
+func AvScan(timeout int) Bitdefender {
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Duration(timeout)*time.Second)
 	defer cancel()
@@ -75,7 +78,7 @@ func AvScan(path string, timeout int) Bitdefender {
 	assert(err)
 
 	return Bitdefender{
-		Results: ParseBitdefenderOutput(results),
+		Results: ParseBitdefenderOutput(results, nil),
 	}
 }
 
@@ -209,6 +212,7 @@ func webAvScan(w http.ResponseWriter, r *http.Request) {
 	defer os.Remove(tmpfile.Name()) // clean up
 
 	data, err := ioutil.ReadAll(file)
+	assert(err)
 
 	if _, err = tmpfile.Write(data); err != nil {
 		log.Fatal(err)
@@ -218,7 +222,8 @@ func webAvScan(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Do AV scan
-	bitdefender := AvScan(tmpfile.Name(), 60)
+	path = tmpfile.Name()
+	bitdefender := AvScan(60)
 
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
@@ -306,7 +311,7 @@ func main() {
 				utils.Assert(err)
 			}
 
-			bitdefender := AvScan(path, c.Int("timeout"))
+			bitdefender := AvScan(c.Int("timeout"))
 			bitdefender.Results.MarkDown = generateMarkDownTable(bitdefender)
 
 			// upsert into Database
