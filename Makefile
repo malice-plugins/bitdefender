@@ -40,15 +40,21 @@ test:
 	cat docs/elastic.json | jq -r '.hits.hits[] ._source.plugins.av.${NAME}.markdown' > docs/SAMPLE.md
 	docker rm -f elasticsearch
 
-circle:
-	@http https://circleci.com/api/v1.1/project/github/${REPO} | jq '.[0].build_num' > .circleci/build_num \
-		&& http "$(shell http https://circleci.com/api/v1.1/project/github/${REPO}/$(shell cat .circleci/build_num)/artifacts${CIRCLE_TOKEN} | jq '.[].url')" > .circleci/SIZE \
-		&& sed -i.bu 's/docker%20image-.*-blue/docker%20image-$(shell cat .circleci/SIZE)-blue/' README.md
+circle: ci-size
+	@sed -i.bu 's/docker%20image-.*-blue/docker%20image-$(shell cat .circleci/SIZE)-blue/' README.md
 	@echo "===> Image size is: $(shell cat .circleci/SIZE)"
+
+ci-build:
+	@echo "===> Getting CircleCI build number"
+	@http https://circleci.com/api/v1.1/project/github/${REPO} | jq '.[0].build_num' > .circleci/build_num
+
+ci-size: ci-build
+	@echo "===> Getting image build size from CircleCI"
+	@http "$(shell http https://circleci.com/api/v1.1/project/github/${REPO}/$(shell cat .circleci/build_num)/artifacts${CIRCLE_TOKEN} | jq '.[].url')" > .circleci/SIZE
 
 clean:
 	docker-clean stop
 	docker rmi $(ORG)/$(NAME):$(VERSION)
 	docker rmi $(ORG)/$(NAME):base
 
-.PHONY: build dev size tags test gotest clean
+	.PHONY: build dev size tags test gotest clean circle
