@@ -17,7 +17,7 @@ func TestParseResult(t *testing.T) {
 	results := ParseBitdefenderOutput(string(r), nil)
 
 	if true {
-		t.Log("results: ", results.Result)
+		t.Log("results: ", results)
 	}
 
 }

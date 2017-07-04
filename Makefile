@@ -29,7 +29,7 @@ gotest:
 
 avtest:
 	@echo "===> ${NAME} EICAR Test"
-	@docker run --init --rm --entrypoint=sh $(ORG)/$(NAME):$(VERSION) -c "/usr/bin/clamscan --stdout /malware/EICAR" > tests/av_scan.out || true
+	@docker run --init --rm --entrypoint=sh $(ORG)/$(NAME):$(VERSION) -c "bdscan /malware/EICAR" > tests/av_scan.out || true
 
 test:
 	docker run --init -d --name elasticsearch -p 9200:9200 blacktop/elasticsearch

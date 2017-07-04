@@ -1,11 +1,7 @@
-/malware/EICAR: Eicar-Test-Signature FOUND
+BitDefender Antivirus Scanner for Unices v7.90123 Linux-amd64
+Copyright (C) 1996-2009 BitDefender. All rights reserved.
+Trial key found. 30 days remaining.
 
------------ SCAN SUMMARY -----------
-Known viruses: 6299388
-Engine version: 0.99.2
-Scanned directories: 0
-Scanned files: 1
-Infected files: 1
-Data scanned: 0.00 MB
-Data read: 0.00 MB (ratio 0.00:1)
-Time: 15.040 sec (0 m 15 s)
+Infected file action: ignore
+Suspected file action: ignore
+Error: core loading failed

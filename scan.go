@@ -75,6 +75,11 @@ func AvScan(timeout int) Bitdefender {
 	defer cancel()
 
 	results, err := utils.RunCommand(ctx, "bdscan", path)
+	log.WithFields(log.Fields{
+		"plugin":   name,
+		"category": category,
+		"path":     path,
+	}).Debug("Bitdefender output: ", results)
 	assert(err)
 
 	return Bitdefender{
@@ -161,10 +166,15 @@ func getUpdatedDate() string {
 
 func updateAV(ctx context.Context) error {
 	fmt.Println("Updating Bitdefender...")
-	fmt.Println(utils.RunCommand(ctx, "bdscan", "--update"))
+	output, err := utils.RunCommand(ctx, "bdscan", "--update")
+	log.WithFields(log.Fields{
+		"plugin":   name,
+		"category": category,
+		"path":     path,
+	}).Debug("Bitdefender update: ", output)
 	// Update UPDATED file
 	t := time.Now().Format("20060102")
-	err := ioutil.WriteFile("/opt/malice/UPDATED", []byte(t), 0644)
+	err = ioutil.WriteFile("/opt/malice/UPDATED", []byte(t), 0644)
 	return err
 }
 

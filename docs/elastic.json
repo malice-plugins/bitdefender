@@ -1,35 +1,21 @@
 {
-  "took": 44,
-  "timed_out": false,
-  "_shards": {
-    "total": 1,
-    "successful": 1,
-    "failed": 0
-  },
-  "hits": {
-    "total": 1,
-    "max_score": 1,
-    "hits": [
+  "error": {
+    "root_cause": [
       {
-        "_index": "malice",
-        "_type": "samples",
-        "_id": "AV0PhPa4VkWRT31rIIMd",
-        "_score": 1,
-        "_source": {
-          "plugins": {
-            "av": {
-              "bitdefender": {
-                "engine": "",
-                "infected": false,
-                "markdown": "#### Bitdefender\n| Infected      | Result      | Engine      | Updated      |\n|:-------------:|:-----------:|:-----------:|:------------:|\n| false |  |  |  |\n",
-                "result": "",
-                "updated": ""
-              }
-            }
-          },
-          "scan_date": "2017-07-04T21:32:38.447202393Z"
-        }
+        "type": "index_not_found_exception",
+        "reason": "no such index",
+        "resource.type": "index_or_alias",
+        "resource.id": "malice",
+        "index_uuid": "_na_",
+        "index": "malice"
       }
-    ]
-  }
+    ],
+    "type": "index_not_found_exception",
+    "reason": "no such index",
+    "resource.type": "index_or_alias",
+    "resource.id": "malice",
+    "index_uuid": "_na_",
+    "index": "malice"
+  },
+  "status": 404
 }
