@@ -52,14 +52,30 @@ type ResultsData struct {
 	MarkDown string `json:"markdown,omitempty" structs:"markdown,omitempty"`
 }
 
+func assert(err error) {
+	if err != nil {
+		// AVG exits with error status 5 if it finds a virus
+		if err.Error() != "exit status 1" {
+			log.WithFields(log.Fields{
+				"plugin":   name,
+				"category": category,
+				"path":     path,
+			}).Fatal(err)
+		}
+	}
+}
+
 // AvScan performs antivirus scan
 func AvScan(path string, timeout int) Bitdefender {
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Duration(timeout)*time.Second)
 	defer cancel()
 
+	results, err := utils.RunCommand(ctx, "bdscan", path)
+	assert(err)
+
 	return Bitdefender{
-		Results: ParseBitdefenderOutput(utils.RunCommand(ctx, "bdscan", path)),
+		Results: ParseBitdefenderOutput(results),
 	}
 }
 
