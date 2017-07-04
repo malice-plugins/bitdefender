@@ -9,7 +9,7 @@ malice-bitdefender
 
 This repository contains a **Dockerfile** of [Bitdefender](http://www.bitdefender.com/business/antivirus-for-unices.html) for [Docker](https://www.docker.io/)'s [trusted build](https://hub.docker.com/r/malice/bitdefender/) published to the public [DockerHub](https://hub.docker.com).
 
-> **NOTE: Currently seeing the error `Error: core loading failed` when trying to run the AV :warnings:
+> **NOTE: Currently seeing the error `Error: core loading failed` when trying to run the AV :warning:
 
 ### Dependencies
 
