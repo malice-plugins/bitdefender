@@ -61,4 +61,4 @@ clean:
 	docker rmi $(ORG)/$(NAME):$(VERSION)
 	docker rmi $(ORG)/$(NAME):base
 
-	.PHONY: build dev size tags test gotest clean circle
+.PHONY: build dev size tags test gotest clean circle
