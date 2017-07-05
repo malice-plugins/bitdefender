@@ -1,7 +1,21 @@
-BitDefender Antivirus Scanner for Unices v7.90123 Linux-amd64
-Copyright (C) 1996-2009 BitDefender. All rights reserved.
-Trial key found. 30 days remaining.
+BitDefender Antivirus Scanner for Unices v7.141118 Linux-amd64
+Copyright (C) 1996-2014 BitDefender. All rights reserved.
+This program is licensed for home or personal use only.
+Usage in an office or production environment represents
+a violation of the license terms
 
 Infected file action: ignore
 Suspected file action: ignore
-Error: core loading failed
+/malware/EICAR  infected: EICAR-Test-File (not a virus)
+
+
+Results:
+Folders            : 0
+Files              : 1
+Packed             : 0
+Archives           : 0
+Infected files     : 1
+Suspect files      : 0
+Identified viruses : 1
+I/O errors         : 0
+
