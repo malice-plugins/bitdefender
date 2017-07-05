@@ -1,0 +1,8 @@
+{
+  "bitdefender": {
+    "infected": true,
+    "result": "EICAR-Test-File (not a virus)",
+    "engine": "7.141118",
+    "updated": "20170705"
+  }
+}

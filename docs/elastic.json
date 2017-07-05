@@ -1,21 +1,35 @@
 {
-  "error": {
-    "root_cause": [
-      {
-        "type": "index_not_found_exception",
-        "reason": "no such index",
-        "resource.type": "index_or_alias",
-        "resource.id": "malice",
-        "index_uuid": "_na_",
-        "index": "malice"
-      }
-    ],
-    "type": "index_not_found_exception",
-    "reason": "no such index",
-    "resource.type": "index_or_alias",
-    "resource.id": "malice",
-    "index_uuid": "_na_",
-    "index": "malice"
+  "took": 78,
+  "timed_out": false,
+  "_shards": {
+    "total": 1,
+    "successful": 1,
+    "failed": 0
   },
-  "status": 404
+  "hits": {
+    "total": 1,
+    "max_score": 1,
+    "hits": [
+      {
+        "_index": "malice",
+        "_type": "samples",
+        "_id": "AV0Q_Vm_Ur_bZdHQDfcV",
+        "_score": 1,
+        "_source": {
+          "plugins": {
+            "av": {
+              "bitdefender": {
+                "engine": "7.141118",
+                "infected": true,
+                "markdown": "#### Bitdefender\n| Infected      | Result      | Engine      | Updated      |\n|:-------------:|:-----------:|:-----------:|:------------:|\n| true | EICAR-Test-File (not a virus) | 7.141118 | 20170705 |\n",
+                "result": "EICAR-Test-File (not a virus)",
+                "updated": "20170705"
+              }
+            }
+          },
+          "scan_date": "2017-07-05T04:23:45.32809595Z"
+        }
+      }
+    ]
+  }
 }
