@@ -2,6 +2,7 @@ REPO=malice-plugins/bitdefender
 ORG=malice
 NAME=bitdefender
 VERSION=$(shell cat VERSION)
+BDKEY?=$(shell cat bd.key)
 
 all: build size test avtest gotest
 
