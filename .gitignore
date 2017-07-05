@@ -24,3 +24,5 @@ _testmain.go
 *.prof
 
 *.bu
+*.key
+BitDefender-Antivirus-Scanner-7.7-1-linux-amd64.deb.run

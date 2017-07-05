@@ -6,19 +6,22 @@ VERSION=$(shell cat VERSION)
 all: build size test avtest gotest
 
 build:
-	docker build -t $(ORG)/$(NAME):$(VERSION) .
+	docker build --build-arg BDKEY=${BDKEY} -t $(ORG)/$(NAME):$(VERSION) .
 
 base:
-	docker build -f Dockerfile.base -t $(REORGPO)/$(NAME):base .
+	docker build -f Dockerfile.base -t $(ORG)/$(NAME):base .
 
-dev: test
-	docker build -f Dockerfile.dev -t $(ORG)/$(NAME):$(VERSION) .
+dev:
+	docker build --build-arg BDKEY=${BDKEY} -f Dockerfile.dev -t $(ORG)/$(NAME):$(VERSION) .
 
 size:
 	sed -i.bu 's/docker%20image-.*-blue/docker%20image-$(shell docker images --format "{{.Size}}" $(ORG)/$(NAME):$(VERSION)| cut -d' ' -f1)-blue/' README.md
 
 tags:
 	docker images --format "table {{.Repository}}\t{{.Tag}}\t{{.Size}}" $(ORG)/$(NAME)
+
+ssh:
+	@docker run --init -it --rm --entrypoint=bash $(ORG)/$(NAME):$(VERSION)
 
 tar:
 	docker save $(ORG)/$(NAME):$(VERSION) -o $(NAME).tar
