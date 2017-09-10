@@ -35,6 +35,9 @@ avtest:
 	@echo "===> ${NAME} EICAR Test"
 	@docker run --init --rm --entrypoint=sh $(ORG)/$(NAME):$(VERSION) -c "bdscan /malware/EICAR" > tests/av_scan.out || true
 
+update:
+	@docker run --init --rm $(ORG)/$(NAME):$(VERSION) -V update
+
 test:
 	docker run --init -d --name elasticsearch -p 9200:9200 blacktop/elasticsearch
 	sleep 10; docker run --init --rm $(ORG)/$(NAME):$(VERSION)

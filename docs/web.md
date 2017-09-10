@@ -1,4 +1,4 @@
-# Create a Bitdefender scan micro-service :new: :construction:
+# Create a Bitdefender scan micro-service
 
 ```bash
 $ docker run -d -p 3993:3993 malice/bitdefender web

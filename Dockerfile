@@ -69,7 +69,7 @@ RUN buildDeps='ca-certificates \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /go /usr/local/go
 
 # Update Bitdefender definitions
-RUN echo "accept" | bdscan --update
+RUN mkdir -p /opt/malice && echo "accept" | bdscan --update
 
 # Add EICAR Test Virus File to malware folder
 ADD http://www.eicar.org/download/eicar.com.txt /malware/EICAR
