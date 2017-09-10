@@ -296,6 +296,9 @@ func main() {
 			Aliases: []string{"u"},
 			Usage:   "Update virus definitions",
 			Action: func(c *cli.Context) error {
+				if c.GlobalBool("verbose") {
+					log.SetLevel(log.DebugLevel)
+				}
 				return updateAV(nil)
 			},
 		},
@@ -303,6 +306,9 @@ func main() {
 			Name:  "web",
 			Usage: "Create a Bitdefender scan web service",
 			Action: func(c *cli.Context) error {
+				if c.GlobalBool("verbose") {
+					log.SetLevel(log.DebugLevel)
+				}
 				webService()
 				return nil
 			},
