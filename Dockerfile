@@ -28,27 +28,27 @@ RUN buildDeps='ca-certificates wget build-essential' \
   && sed -i 's/^MD5=.*$/MD5="00000000000000000000000000000000"/' BitDefender-Antivirus-Scanner-${BDVERSION}-linux-amd64.deb.run \
   && (echo 'accept'; echo 'n') | sh /tmp/BitDefender-Antivirus-Scanner-${BDVERSION}-linux-amd64.deb.run; \
   if [ "x$BDKEY" != "x" ]; then \
-      echo "===> Updating License..."; \
-      oldkey='^Key =.*$'; \
-      newkey="Key = ${BDKEY}"; \
-      sed -i "s|$oldkey|$newkey|g" /opt/BitDefender-scanner/etc/bdscan.conf; \
-      cat /opt/BitDefender-scanner/etc/bdscan.conf; \
+  echo "===> Updating License..."; \
+  oldkey='^Key =.*$'; \
+  newkey="Key = ${BDKEY}"; \
+  sed -i "s|$oldkey|$newkey|g" /opt/BitDefender-scanner/etc/bdscan.conf; \
+  cat /opt/BitDefender-scanner/etc/bdscan.conf; \
   fi \
   && echo "===> Clean up unnecessary files..." \
   && apt-get purge -y --auto-remove $buildDeps \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /go /usr/local/go
 
-ENV GO_VERSION 1.8.3
+ENV GO_VERSION 1.10.3
 
 COPY . /go/src/github.com/malice-plugins/bitdefender
 RUN buildDeps='ca-certificates \
-               build-essential \
-               gdebi-core \
-               libssl-dev \
-               mercurial \
-               git-core \
-               wget' \
+  build-essential \
+  gdebi-core \
+  libssl-dev \
+  mercurial \
+  git-core \
+  wget' \
   && apt-get update -qq \
   && apt-get install -yq $buildDeps libc6-i386 \
   && set -x \
@@ -62,7 +62,7 @@ RUN buildDeps='ca-certificates \
   && export GOPATH=/go \
   && go version \
   && go get \
-  && go build -ldflags "-X main.Version=$(cat VERSION) -X main.BuildTime=$(date -u +%Y%m%d)" -o /bin/avscan \
+  && go build -ldflags "-s -w -X main.Version=$(cat VERSION) -X main.BuildTime=$(date -u +%Y%m%d)" -o /bin/avscan \
   && echo "===> Clean up unnecessary files..." \
   && apt-get purge -y --auto-remove $buildDeps \
   && apt-get clean \

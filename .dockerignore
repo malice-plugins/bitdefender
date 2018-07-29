@@ -4,6 +4,7 @@
 
 .circleci*
 docs*
+vendor*
 tests*
 
 README.md

@@ -1,5 +1,4 @@
-malice-bitdefender
-==================
+# bitdefender
 
 [![Circle CI](https://circleci.com/gh/malice-plugins/bitdefender.png?style=shield)](https://circleci.com/gh/malice-plugins/bitdefender)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
@@ -11,12 +10,12 @@ This repository contains a **Dockerfile** of [Bitdefender](http://www.bitdefende
 
 ### Dependencies
 
--	[debian:jessie (*123 MB*\)](https://hub.docker.com/_/debian/)
+- [debian:jessie (_123 MB_\)](https://hub.docker.com/_/debian/)
 
 ### Installation
 
-1.	Install [Docker](https://www.docker.io/).
-2.	Download [trusted build](https://hub.docker.com/r/malice/bitdefender/) from public [DockerHub](https://hub.docker.com): `docker pull malice/bitdefender`
+1.  Install [Docker](https://www.docker.io/).
+2.  Download [trusted build](https://hub.docker.com/r/malice/bitdefender/) from public [DockerHub](https://hub.docker.com): `docker pull malice/bitdefender`
 
 ### Usage
 
@@ -43,14 +42,14 @@ Options:
   --table, -t	        output as Markdown table
   --callback, -c	    POST results to Malice webhook [$MALICE_ENDPOINT]
   --proxy, -x	        proxy settings for Malice webhook endpoint [$MALICE_PROXY]
-  --timeout value       malice plugin timeout (in seconds) (default: 60) [$MALICE_TIMEOUT]    
-  --elasitcsearch value elasitcsearch address for Malice to store results [$MALICE_ELASTICSEARCH]   
+  --timeout value       malice plugin timeout (in seconds) (default: 60) [$MALICE_TIMEOUT]
+  --elasitcsearch value elasitcsearch address for Malice to store results [$MALICE_ELASTICSEARCH]
   --help, -h	        show help
   --version, -v	        print the version
 
 Commands:
   update	Update virus definitions
-  web       Create a bitdefender scan web service  
+  web       Create a bitdefender scan web service
   help		Shows a list of commands or help for one command
 
 Run 'bitdefender COMMAND --help' for more information on a command.
@@ -60,7 +59,7 @@ This will output to stdout and POST to malice results API webhook endpoint.
 
 ## Sample Output
 
-### JSON:
+### [JSON](https://github.com/malice-plugins/clamav/blob/master/docs/results.json)
 
 ```json
 {
@@ -73,7 +72,7 @@ This will output to stdout and POST to malice results API webhook endpoint.
 }
 ```
 
-### Markdown:
+### [Markdown](https://github.com/malice-plugins/clamav/blob/master/docs/SAMPLE.md)
 
 ---
 
@@ -85,28 +84,27 @@ This will output to stdout and POST to malice results API webhook endpoint.
 
 ---
 
-Documentation
--------------
+## Documentation
 
--	[To write results to ElasticSearch](https://github.com/malice-plugins/bitdefender/blob/master/docs/elasticsearch.md)
--	[To create a Bitdefender scan micro-service](https://github.com/malice-plugins/bitdefender/blob/master/docs/web.md)
--	[To post results to a webhook](https://github.com/malice-plugins/bitdefender/blob/master/docs/callback.md)
--	[To update the AV definitions](https://github.com/malice-plugins/bitdefender/blob/master/docs/update.md)
+- [To write results to ElasticSearch](https://github.com/malice-plugins/bitdefender/blob/master/docs/elasticsearch.md)
+- [To create a Bitdefender scan micro-service](https://github.com/malice-plugins/bitdefender/blob/master/docs/web.md)
+- [To post results to a webhook](https://github.com/malice-plugins/bitdefender/blob/master/docs/callback.md)
+- [To update the AV definitions](https://github.com/malice-plugins/bitdefender/blob/master/docs/update.md)
 
-### Issues
+## Issues
 
 Find a bug? Want more features? Find something missing in the documentation? Let me know! Please don't hesitate to [file an issue](https://github.com/malice-plugins/bitdefender/issues/new).
 
-### CHANGELOG
+## CHANGELOG
 
 See [`CHANGELOG.md`](https://github.com/malice-plugins/bitdefender/blob/master/CHANGELOG.md)
 
-### Contributing
+## Contributing
 
 [See all contributors on GitHub](https://github.com/malice-plugins/bitdefender/graphs/contributors).
 
 Please update the [CHANGELOG.md](https://github.com/malice-plugins/bitdefender/blob/master/CHANGELOG.md) and submit a [Pull Request on GitHub](https://help.github.com/articles/using-pull-requests/).
 
-### License
+## License
 
-MIT Copyright (c) 2016-2017 **blacktop**
+MIT Copyright (c) 2016 **blacktop**
