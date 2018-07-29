@@ -59,7 +59,7 @@ This will output to stdout and POST to malice results API webhook endpoint.
 
 ## Sample Output
 
-### [JSON](https://github.com/malice-plugins/clamav/blob/master/docs/results.json)
+### [JSON](https://github.com/malice-plugins/bitdefender/blob/master/docs/results.json)
 
 ```json
 {
@@ -72,7 +72,7 @@ This will output to stdout and POST to malice results API webhook endpoint.
 }
 ```
 
-### [Markdown](https://github.com/malice-plugins/clamav/blob/master/docs/SAMPLE.md)
+### [Markdown](https://github.com/malice-plugins/bitdefender/blob/master/docs/SAMPLE.md)
 
 ---
 
