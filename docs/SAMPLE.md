@@ -1,5 +1,5 @@
 #### Bitdefender
 | Infected      | Result      | Engine      | Updated      |
 |:-------------:|:-----------:|:-----------:|:------------:|
-| true | EICAR-Test-File (not a virus) | 7.141118 | 20170705 |
+| true | Backdoor.Lecna.AB | 7.141118 | 20180729 |
 

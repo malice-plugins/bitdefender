@@ -1,8 +1,8 @@
 {
   "bitdefender": {
     "infected": true,
-    "result": "EICAR-Test-File (not a virus)",
+    "result": "Backdoor.Lecna.AB",
     "engine": "7.141118",
-    "updated": "20170705"
+    "updated": "20180729"
   }
 }

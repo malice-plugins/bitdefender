@@ -3,6 +3,8 @@ ORG=malice
 NAME=bitdefender
 CATEGORY=av
 VERSION=$(shell cat VERSION)
+MALWARE=tests/malware
+
 BDKEY?=$(shell cat bd.key)
 
 
