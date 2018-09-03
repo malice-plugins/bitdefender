@@ -1,4 +1,4 @@
-# bitdefender
+# malice-bitdefender
 
 [![Circle CI](https://circleci.com/gh/malice-plugins/bitdefender.png?style=shield)](https://circleci.com/gh/malice-plugins/bitdefender)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
@@ -6,24 +6,26 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/malice/bitdefender.svg)](https://hub.docker.com/r/malice/bitdefender/)
 [![Docker Image](https://img.shields.io/badge/docker%20image-582MB-blue.svg)](https://hub.docker.com/r/malice/bitdefender/)
 
-This repository contains a **Dockerfile** of [Bitdefender](http://www.bitdefender.com/business/antivirus-for-unices.html) for [Docker](https://www.docker.io/)'s [trusted build](https://hub.docker.com/r/malice/bitdefender/) published to the public [DockerHub](https://hub.docker.com).
+Malice Bitdefender AntiVirus
+
+> This repository contains a **Dockerfile** of [Bitdefender](http://www.bitdefender.com/business/antivirus-for-unices.html) for [Docker](https://www.docker.io/)'s [trusted build](https://hub.docker.com/r/malice/bitdefender/) published to the public [DockerHub](https://hub.docker.com).
 
 ### Dependencies
 
 - [debian:jessie (_123 MB_\)](https://hub.docker.com/_/debian/)
 
-### Installation
+## Installation
 
-1.  Install [Docker](https://www.docker.io/).
-2.  Download [trusted build](https://hub.docker.com/r/malice/bitdefender/) from public [DockerHub](https://hub.docker.com): `docker pull malice/bitdefender`
+1. Install [Docker](https://www.docker.io/).
+2. Download [trusted build](https://hub.docker.com/r/malice/bitdefender/) from public [DockerHub](https://hub.docker.com): `docker pull malice/bitdefender`
 
-### Usage
+## Usage
 
 ```
 docker run --rm malice/bitdefender EICAR
 ```
 
-#### Or link your own malware folder:
+### Or link your own malware folder:
 
 ```bash
 $ docker run --rm -v /path/to/malware:/malware:ro malice/bitdefender FILE
