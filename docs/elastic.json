@@ -1,5 +1,5 @@
 {
-  "took": 37,
+  "took": 41,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -8,13 +8,13 @@
     "failed": 0
   },
   "hits": {
-    "total": 1,
+    "total": 2,
     "max_score": 1,
     "hits": [
       {
         "_index": "malice",
         "_type": "samples",
-        "_id": "DNwn5GQBJP7Jfll143dk",
+        "_id": "wZjfnGUBmWLLXH2eicTC",
         "_score": 1,
         "_source": {
           "plugins": {
@@ -22,13 +22,33 @@
               "bitdefender": {
                 "engine": "7.141118",
                 "infected": true,
-                "markdown": "#### Bitdefender\n| Infected      | Result      | Engine      | Updated      |\n|:-------------:|:-----------:|:-----------:|:------------:|\n| true | Backdoor.Lecna.AB | 7.141118 | 20180729 |\n",
+                "markdown": "#### Bitdefender\n| Infected      | Result      | Engine      | Updated      |\n|:-------------:|:-----------:|:-----------:|:------------:|\n| true | Backdoor.Lecna.AB | 7.141118 | 20180903 |\n",
                 "result": "Backdoor.Lecna.AB",
-                "updated": "20180729"
+                "updated": "20180903"
               }
             }
           },
-          "scan_date": "2018-07-29T03:49:36.730171398Z"
+          "scan_date": "2018-09-03T00:40:20.15342526Z"
+        }
+      },
+      {
+        "_index": "malice",
+        "_type": "samples",
+        "_id": "wpjfnGUBmWLLXH2epMSc",
+        "_score": 1,
+        "_source": {
+          "plugins": {
+            "av": {
+              "bitdefender": {
+                "engine": "7.141118",
+                "infected": false,
+                "markdown": "#### Bitdefender\n| Infected      | Result      | Engine      | Updated      |\n|:-------------:|:-----------:|:-----------:|:------------:|\n| false |  | 7.141118 | 20180903 |\n",
+                "result": "",
+                "updated": "20180903"
+              }
+            }
+          },
+          "scan_date": "2018-09-03T00:40:27.033770753Z"
         }
       }
     ]
