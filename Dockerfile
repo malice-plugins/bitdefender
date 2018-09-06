@@ -1,4 +1,18 @@
-FROM debian:jessie
+####################################################
+# GOLANG BUILDER
+####################################################
+FROM golang:1.11 as go_builder
+
+COPY . /go/src/github.com/malice-plugins/bitdefender
+WORKDIR /go/src/github.com/malice-plugins/bitdefender
+RUN go get -u github.com/golang/dep/cmd/dep && dep ensure
+RUN go build -ldflags "-s -w -X main.Version=v$(cat VERSION) -X main.BuildTime=$(date -u +%Y%m%d)" -o /bin/avscan
+
+####################################################
+# PLUGIN BUILDER
+####################################################
+FROM ubuntu:bionic
+# FROM debian:jessie
 
 LABEL maintainer "https://github.com/blacktop"
 
@@ -6,6 +20,13 @@ LABEL malice.plugin.repository = "https://github.com/malice-plugins/bitdefender.
 LABEL malice.plugin.category="av"
 LABEL malice.plugin.mime="*"
 LABEL malice.plugin.docker.engine="*"
+
+# Create a malice user and group first so the IDs get set the same way, even as
+# the rest of this may change over time.
+RUN groupadd -r malice \
+  && useradd --no-log-init -r -g malice malice \
+  && mkdir /malware \
+  && chown -R malice:malice /malware
 
 ARG BDKEY
 ENV BDVERSION 7.7-1
@@ -39,40 +60,17 @@ RUN buildDeps='ca-certificates wget build-essential' \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /go /usr/local/go
 
-ENV GO_VERSION 1.11
-
-COPY . /go/src/github.com/malice-plugins/bitdefender
-RUN buildDeps='ca-certificates \
-  build-essential \
-  gdebi-core \
-  libssl-dev \
-  mercurial \
-  git-core \
-  wget' \
-  && apt-get update -qq \
-  && apt-get install -yq $buildDeps libc6-i386 \
-  && set -x \
-  && echo "===> Install Go..." \
-  && ARCH="$(dpkg --print-architecture)" \
-  && wget -q https://storage.googleapis.com/golang/go$GO_VERSION.linux-$ARCH.tar.gz -O /tmp/go.tar.gz \
-  && tar -C /usr/local -xzf /tmp/go.tar.gz \
-  && export PATH=$PATH:/usr/local/go/bin \
-  && echo "===> Building avscan Go binary..." \
-  && cd /go/src/github.com/malice-plugins/bitdefender \
-  && export GOPATH=/go \
-  && go version \
-  && go get \
-  && go build -ldflags "-s -w -X main.Version=v$(cat VERSION) -X main.BuildTime=$(date -u +%Y%m%d)" -o /bin/avscan \
-  && echo "===> Clean up unnecessary files..." \
-  && apt-get purge -y --auto-remove $buildDeps \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /go /usr/local/go
+# Ensure ca-certificates is installed for elasticsearch to use https
+RUN apt-get update -qq && apt-get install -yq --no-install-recommends ca-certificates \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Update Bitdefender definitions
 RUN mkdir -p /opt/malice && echo "accept" | bdscan --update
 
 # Add EICAR Test Virus File to malware folder
 ADD http://www.eicar.org/download/eicar.com.txt /malware/EICAR
+
+COPY --from=go_builder /bin/avscan /bin/avscan
 
 WORKDIR /malware
 
