@@ -1,5 +1,5 @@
 {
-  "took": 42,
+  "took": 147,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -14,7 +14,7 @@
       {
         "_index": "malice",
         "_type": "samples",
-        "_id": "yGa2rGUB2T3yo31oGzFw",
+        "_id": "yayR02gBbc4TJqb1htdW",
         "_score": 1,
         "_source": {
           "plugins": {
@@ -22,19 +22,19 @@
               "bitdefender": {
                 "engine": "7.141118",
                 "infected": true,
-                "markdown": "#### Bitdefender\n| Infected      | Result      | Engine      | Updated      |\n|:-------------:|:-----------:|:-----------:|:------------:|\n| true | Backdoor.Lecna.AB | 7.141118 | 20180906 |\n",
+                "markdown": "#### Bitdefender\n| Infected      | Result      | Engine      | Updated      |\n|:-------------:|:-----------:|:-----------:|:------------:|\n| true | Backdoor.Lecna.AB | 7.141118 | 20190209 |\n",
                 "result": "Backdoor.Lecna.AB",
-                "updated": "20180906"
+                "updated": "20190209"
               }
             }
           },
-          "scan_date": "2018-09-06T02:29:00.38723936Z"
+          "scan_date": "2019-02-09T18:42:36.222332Z"
         }
       },
       {
         "_index": "malice",
         "_type": "samples",
-        "_id": "yWa2rGUB2T3yo31oPTE-",
+        "_id": "yqyR02gBbc4TJqb1o9df",
         "_score": 1,
         "_source": {
           "plugins": {
@@ -42,13 +42,13 @@
               "bitdefender": {
                 "engine": "7.141118",
                 "infected": false,
-                "markdown": "#### Bitdefender\n| Infected      | Result      | Engine      | Updated      |\n|:-------------:|:-----------:|:-----------:|:------------:|\n| false |  | 7.141118 | 20180906 |\n",
+                "markdown": "#### Bitdefender\n| Infected      | Result      | Engine      | Updated      |\n|:-------------:|:-----------:|:-----------:|:------------:|\n| false |  | 7.141118 | 20190209 |\n",
                 "result": "",
-                "updated": "20180906"
+                "updated": "20190209"
               }
             }
           },
-          "scan_date": "2018-09-06T02:29:09.050878505Z"
+          "scan_date": "2019-02-09T18:42:43.6768961Z"
         }
       }
     ]
