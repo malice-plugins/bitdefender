@@ -28,6 +28,12 @@ tag:
 tags:
 	docker images --format "table {{.Repository}}\t{{.Tag}}\t{{.Size}}" $(ORG)/$(NAME)
 
+.PHONY: push
+push:
+	echo ${GITHUB_PACKAGES} | docker login docker.pkg.github.com -u blacktop --password-stdin
+	docker tag $(ORG)/$(NAME):$(VERSION) docker.pkg.github.com/$(REPO)/$(CATEGORY):$(VERSION)
+	docker push docker.pkg.github.com/$(REPO)/$(CATEGORY):$(VERSION)
+
 .PHONY: ssh
 ssh:
 	@docker run --init -it --rm --entrypoint=bash $(ORG)/$(NAME):$(VERSION)
