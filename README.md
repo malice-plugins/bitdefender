@@ -4,7 +4,7 @@
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 [![Docker Stars](https://img.shields.io/docker/stars/malice/bitdefender.svg)](https://hub.docker.com/r/malice/bitdefender/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/malice/bitdefender.svg)](https://hub.docker.com/r/malice/bitdefender/)
-[![Docker Image](https://img.shields.io/badge/docker%20image-511MB-blue.svg)](https://hub.docker.com/r/malice/bitdefender/)
+[![Docker Image](https://img.shields.io/badge/docker%20image-502MB-blue.svg)](https://hub.docker.com/r/malice/bitdefender/)
 
 Malice Bitdefender AntiVirus
 
